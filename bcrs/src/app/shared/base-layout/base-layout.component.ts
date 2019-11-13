@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./base-layout.component.css']
 })
 export class BaseLayoutComponent implements OnInit {
+  year: number = Date.now();
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
   }

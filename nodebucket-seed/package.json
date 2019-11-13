@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "localhost": "nodemon ./server/app.js",
-    "start": "ng build && node server/app.js",
+    "server": "nodemon ./server/app.js",
+    "localhost": "ng build && ./server/app.js",
+    "start": "node server/app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

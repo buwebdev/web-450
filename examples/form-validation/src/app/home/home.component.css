@@ -1,0 +1,9 @@
+small {
+    color: red;
+}
+
+.result-msg {
+    text-align: center;
+    color: steelblue;
+    font-weight: bold;
+}

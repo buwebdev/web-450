@@ -16,12 +16,12 @@
     "@angular/common": "~10.1.0",
     "@angular/compiler": "~10.1.0",
     "@angular/core": "~10.1.0",
-    "@angular/flex-layout": "^10.0.0-beta.32",
     "@angular/forms": "~10.1.0",
     "@angular/material": "^10.2.1",
     "@angular/platform-browser": "~10.1.0",
     "@angular/platform-browser-dynamic": "~10.1.0",
     "@angular/router": "~10.1.0",
+    "flex-layout": "^1.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

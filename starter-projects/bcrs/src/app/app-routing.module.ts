@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {BaseLayoutComponent} from "./shared/base-layout/base-layout.component";
-import {HomeComponent} from "./pages/home/home.component";
+import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
+import { HomeComponent } from './pages/home/home.component';
+
 
 const routes: Routes = [
   {
@@ -10,14 +11,15 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        title: 'BCRS: Home'
       }
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

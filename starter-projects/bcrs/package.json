@@ -1,5 +1,5 @@
 {
-  "name": "bcrs",
+  "name": "nodebucket",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.1.0",
+    "@angular/cdk": "^16.1.6",
     "@angular/common": "^16.1.0",
     "@angular/compiler": "^16.1.0",
     "@angular/core": "^16.1.0",
@@ -20,7 +21,7 @@
     "@angular/router": "^16.1.0",
     "ajv": "^8.12.0",
     "bootstrap": "^5.3.1",
-    "chart.js": "^4.3.2",
+    "chart.js": "^4.3.3",
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
     "mongodb": "^5.7.0",

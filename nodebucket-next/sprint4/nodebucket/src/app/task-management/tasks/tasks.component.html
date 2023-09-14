@@ -1,0 +1,228 @@
+<div class="container-fluid pt-2" style="min-height: 600px">
+  <h1 class="text-center">My Tasks!</h1>
+
+  <!-- error messages -->
+  <div class="row justify-content-center p4-4">
+    <div class="col-sm-10 col-md-8 col-lg-6">
+
+      <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      </div>
+
+      <div *ngIf="successMessage">
+        <div class="alert alert-success" role="alert">
+          {{ successMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end error messages -->
+
+  <!-- form goes here -->
+  <div class="row justify-content-center pt">
+    <div class="col-sm-10 col-md-8 col-lg-6">
+      <form [formGroup]="newTaskForm" (ngSubmit)="addTask();">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="text" placeholder="Add a new task" aria-label="Add a new task" aria-describedby="btnAdd">
+          <button class="btn btn-outline-secondary" type="submit" [disabled]="!newTaskForm.valid" id="btnAdd">Add</button>
+        </div>
+
+        <!-- testing -->
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" formControlName="category" name="category" id="testingRadio" value="testing">
+          <label for="testingRadio" class="from-check-label">Testing</label>
+        </div>
+
+        <!-- meetings -->
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" formControlName="category" name="category" id="meetingsRadio" value="meetings">
+          <label for="meetingsRadio" class="from-check-label">Meetings</label>
+        </div>
+
+        <!-- projects -->
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" formControlName="category" name="category" id="projectsRadio" value="projects">
+          <label for="projectsRadio" class="from-check-label">Projects</label>
+        </div>
+
+        <!-- other -->
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" formControlName="category" name="category" id="otherRadio" value="other">
+          <label for="otherRadio" class="from-check-label">Other</label>
+        </div>
+
+        <!-- error handling -->
+        <div class="mt-2">
+
+          <!-- required -->
+          <div *ngIf="newTaskForm.controls['text'].touched && newTaskForm.controls['text'].hasError('required')">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              Please enter a task!
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+
+          <!-- min length -->
+          <div *ngIf="newTaskForm.controls['text'].touched && newTaskForm.controls['text'].hasError('minlength')">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              The task field must be at least 3 characters long!
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+
+          <!-- max length -->
+          <div *ngIf="newTaskForm.controls['text'].touched && newTaskForm.controls['text'].hasError('maxlength')">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              The task field must be at most 50 characters long!
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- task columns -->
+  <div class="row gy-3 mt-2 justify-content-center">
+
+    <!-- todo column -->
+    <div class="col-sm-5 col-md-4 col-lg-3">
+      <h4 class="text-center">ToDo</h4>
+
+      <div class="p-3 border bg-light">
+
+        <div 
+          class="container task-column"
+          cdkDropList
+          #todoList="cdkDropList"
+          [cdkDropListData]="todo"
+          [cdkDropListConnectedTo]="[doneList]"
+          (cdkDropListDropped)="drop($event)">
+
+          <!-- message for no todo tasks -->
+          <div *ngIf="!todo || todo.length === 0">
+            <div class="alert alert-info">
+              No tasks to do yet!
+            </div>
+          </div>
+          <!-- end message for no todo -->
+
+          <div *ngFor="let item of todo" cdkDrag class="mt-2">
+
+            <div class="row border bg-white task-hover">
+              <div class="col-sm-6">
+                <div class="card-body">
+
+                  <button
+                    *ngIf="item.category.categoryName != 'other'"
+                    [ngStyle]="{ 'background-color': item.category.backgroundColor }"
+                    data-bs-toggle="tooltip"
+                    title="{{ item.category.categoryName }}"
+                    style="width: 25%"
+                    class="btn"
+                  >
+                  </button>
+                  <div>
+                    {{ item.text }}
+                  </div>
+                </div>
+              </div>
+              <!-- end col-sm-6 -->
+              
+              <div class="col-sm-6 d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                <div class="card-body float-end">
+                  <button class="btn" (click)="deleteTask(item._id ?? '')">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </div>
+              </div>
+              <!-- end second col-sm-6 -->
+
+              <!-- only for mobile viewports --> 
+              <div class="col-12 d-sm-none d-md-none d-lg-none d-xl-none d-grid gap-2 p-2">
+                <button class="btn btn-secondary" (click)="deleteTask(item._id ?? '')">
+                  Delete
+                </button>
+              </div>
+            </div>
+            <!-- end row -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of todo -->
+
+    <!-- done column -->
+    <div class="col-sm-5 col-md-4 col-lg-3">
+      <h4 class="text-center">Done</h4>
+
+      <div class="p-3 border bg-light">
+
+        <div 
+          class="container task-column"
+          cdkDropList
+          #doneList="cdkDropList"
+          [cdkDropListData]="done"
+          [cdkDropListConnectedTo]="[todoList]"
+          (cdkDropListDropped)="drop($event)">
+
+          <!-- message for no done tasks -->
+          <div *ngIf="!done || done.length === 0">
+            <div class="alert alert-info">
+              No tasks to done yet!
+            </div>
+          </div>
+          <!-- end message for no done -->
+
+          <div *ngFor="let item of done" cdkDrag class="mt-2">
+
+            <div class="row border bg-white task-hover">
+              <div class="col-sm-6">
+                <div class="card-body">
+
+                  <button
+                    *ngIf="item.category.categoryName != 'other'"
+                    [ngStyle]="{ 'background-color': item.category.backgroundColor }"
+                    data-bs-toggle="tooltip"
+                    title="{{ item.category.categoryName }}"
+                    style="width: 25%"
+                    class="btn"
+                  >
+                  </button>
+                  <div>
+                    {{ item.text }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- end of col-sm-6 -->
+              <div class="col-sm-6 d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                <div class="card-body float-end">
+                  <button class="btn" (click)="deleteTask(item._id ?? '')">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </div>
+              </div>
+              <!-- end second col-sm-6 -->
+
+              <!-- only for mobile viewports --> 
+              <div class="col-12 d-sm-none d-md-none d-lg-none d-xl-none d-grid gap-2 p-2">
+                <button class="btn btn-secondary" (click)="deleteTask(item._id ?? '')">
+                  Delete
+                </button>
+              </div>
+            </div>
+            <!-- end of row -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of done -->
+
+  </div>
+</div>

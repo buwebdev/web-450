@@ -1,0 +1,75 @@
+<div class="container-fluid pt-2" style="min-height: 600px">
+  <h1 class="text-center">Welcome to the Employee List Page!</h1>
+
+  <div class="row pt-4 justify-content-center">
+
+    <div class="col-sm-12 col-md-10 col-lg-6">
+
+      <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      </div>
+
+      <div *ngIf="successMessage">
+        <div class="alert alert-success" role="alert">
+          {{ successMessage }}
+        </div>
+      </div>
+
+      <a routerLink="/admin/employees/new" class="text-dark text-underline-hover">New Employee</a>
+
+      <div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
+        <div class="spinner-border spinner-lg" style="width: 3rem; height: 3rem;" role="status" aria-hidden="true">
+          <span class="sr-only visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- tablet and desktop view ports -->
+      <div class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
+        <table *ngIf="!isLoading" class="table">
+          <thead class="table-dark">
+            <tr>
+              <th>EmpId</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Role</th>
+              <th>Functions</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let employee of employees">
+            <tr>
+              <td>{{ employee.empId }}</td>
+              <td>{{ employee.firstName }}</td>
+              <td>{{ employee.lastName }}</td>
+              <td>{{ employee.role }}</td>
+              <td>
+                <a routerLink="/admin/employees/{{ employee.empId}}/view">
+                  <span class="material-icons text-secondary">edit</span>
+                </a>
+
+                <a class="link" (click)="deleteEmployee(employee.empId)">
+                  <span class="material-icons text-secondary">delete</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end of tablet viewport -->
+
+      <!-- mobile viewports-->
+      <div class="d-md-none d-lg-none d-xl-none">
+        <div class="card" style="margin: 10px;" *ngFor="let employee of employees">
+          <div class="card-body">
+            <h5 class="card-title">{{ employee.firstName }} {{ employee.lastName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ employee.role }}</h6>
+            <p class="card-text">Employee ID: {{ employee.empId }}</p>
+            <a routerLink="/admin/employees/{{ employee.empId}}/view" class="card-link">Edit</a>
+            <a (click)="deleteEmployee(employee.empId)" class="card-link">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

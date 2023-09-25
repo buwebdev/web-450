@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-4 col-md-6 col-sm-6">
+      <div class="card shadow">
+        <div class="card-title text-center border-bottom">
+          <h2 class="p-3">Employee Sign In</h2>
+        </div>
+
+        <!-- error message -->
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="signinForm" (ngSubmit)="signin(); signinForm.reset();">
+            <!-- email -->
+            <div class="mb-4">
+              <label for="email" class="form-label">Email:</label>
+              <input type="text" class="form-control" id="email" formControlName="email" />
+            </div>
+
+            <!-- validation for email -->
+            <div *ngIf="signinForm.controls['email'].touched && signinForm.controls['email'].hasError('required')">
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Email is required.
+                <input type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              </div>
+            </div>
+
+            <div *ngIf="signinForm.controls['email'].touched && signinForm.controls['email'].hasError('email')">
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Please enter a valid email address.
+                <input type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              </div>
+            </div>
+            <!-- end email error handling -->
+
+            <!-- password -->
+            <div class="mb-4">
+              <label for="password" class="form-label">Password:</label>
+              <input type="password" class="form-control" id="password" formControlName="password">
+            </div>
+
+            <!-- password validation --> 
+            <div *ngIf="signinForm.controls['password'].touched && signinForm.controls['password'].hasError('required')">
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Password is required.
+                <input type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              </div>
+            </div>
+
+            <div *ngIf="signinForm.controls['password'].touched && signinForm.controls['password'].hasError('pattern')">
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                The password must be at least 8 characters in long and contain at least one uppercase letter, one lowercase letter, and one number.
+                <input type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              </div>
+            </div>
+            <!-- end password error handling -->
+
+            <div class="d-grid">
+              <button type="submit" [disabled]="!signinForm.valid" class="btn btn-dark">
+                <span *ngIf="!isLoading">Sign in</span>
+
+                <div *ngIf="isLoading">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <a routerLink="/" class="text-dark text-underline-hover">Return</a>
+    </div>
+  </div>
+</div>

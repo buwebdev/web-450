@@ -1,0 +1,106 @@
+/**
+  Title: styles.css
+  Author: Professor Richard Krasso
+  Date: 9/25/2023
+*/
+
+/* CSS Reset */
+body, header, nav, main, footer, h1, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Style rules for body and images */
+body {
+  background-color: #000;
+}
+
+/* Style rule for header */
+header {
+  width: 25%;
+  float: left;
+  height: 250px;
+}
+
+header a {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+/* Style rules for navigation area */
+nav {
+  width: 70%;
+  float: right;
+  margin: 5em 3em 0 0;
+}
+
+/**
+  Style rules for navigation list items
+  and anchor tags
+*/
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  text-align: right;
+}
+
+nav li {
+  display: inline-block;
+  font-size: 1.5em;
+  font-family: Verdana, Arial, sans-serif;
+  font-weight: bold;
+}
+
+nav li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
+
+/* Style rules for header and main content */
+h1, h2 {
+  text-align: center;
+}
+
+/* Style rules for main content */
+main {
+  clear: left;
+  background-color: #fff;
+  padding: 2%;
+  font-size: 1.25em;
+  min-height: 600px;
+}
+
+.container {
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+/* Style rules for chart */
+.chart {
+  display: block;
+  height: 60%;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.chart-container {
+  padding-top: 3%;
+}
+
+/* Style rules for footer content */
+footer p {
+  font-size: 0.75em;
+  text-align: center;
+  color: #fff;
+  padding: 0 1em;
+}
+
+footer p a {
+  color: #fff;
+  text-decoration: none;
+}

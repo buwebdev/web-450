@@ -1,0 +1,37 @@
+<div>
+  <div class="order-summary">
+    <div class="order-summary__header">
+      <div class="order-summary__header-title">
+        <h2>Order #{{ order.id }}</h2>
+        <div class="order-summary__header-date">{{ order.date | date }}</div>
+      </div>
+    </div>
+
+    <div class="order-summary__body">
+      <h4 class="order-summary__body-title">Selected Menu Items</h4>
+
+      <div class="order-summary__body-item" *ngFor="let item of order.menuItems">
+        <div class="order-summary__body-item-name">{{ item.name }}:</div>
+        <div class="order-summary__body-item-price">{{ item.price | currency }}</div>
+      </div>
+
+      <div class="order-summary__body-tax">
+        <div class="order-summary__body-tax-label">Tax:</div>
+        <div class="order-summary__body-tax-value">{{ order.tax |  percent:'1.2-5' }}</div>
+      </div>
+
+      <div class="order-summary__body-tip">
+        <div class="order-summary__body-tip-label">Tip:</div>
+        <div class="order-summary__body-tip-value">{{ order.tip | currency }}</div>
+      </div>
+    </div>
+
+    <div class="order-summary__total">
+      <p>
+        <span class="order-summary__total-label">Order Total:</span>
+        <span class="order-summary__total-value">{{ order.orderTotal | currency }}</span>
+      </p>
+    </div>
+  </div>
+  <a class="return" routerLink="/">Place new order</a>
+</div>

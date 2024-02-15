@@ -1,0 +1,41 @@
+<div id="creature-list">
+  <h1>Hogwarts Creature List</h1>
+  <h2>Here are the creatures that have been configured in the system:</h2>
+
+  <a id="new-creature" routerLink="/creatures/new">Add new creature</a>
+
+  <div *ngIf="creatures.length === 0 || !creatures">
+    <p id="no-creatures">No creatures have been configured in the system yet.</p>
+  </div>
+
+  <div *ngIf="creatures.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Abilities</th>
+          <th>Danger Level</th>
+          <th>Habitat</th>
+          <th>Functions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let creature of creatures">
+          <td>
+            {{creature.name}}
+          </td>
+          <td>{{creature.description}}</td>
+          <td>{{creature.abilities.join(',')}}</td>
+          <td>{{creature.dangerLevel}}</td>
+          <td>{{creature.habitat}}</td>
+          <td>
+            <a id="edit-creature" routerLink="/creatures/{{creature._id}}">Edit</a> &nbsp; | &nbsp;
+            <a id="delete-creature" (click)="deleteCreature(creature._id)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

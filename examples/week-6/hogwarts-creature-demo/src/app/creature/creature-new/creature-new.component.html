@@ -1,0 +1,29 @@
+<div id="creature-create">
+  <h1>New Creature</h1>
+  <h2>Here you can add a new creature to the creature list</h2>
+
+  <form (ngSubmit)="createCreature();" class="form">
+    <fieldset>
+      <legend>Create Creature Form</legend>
+
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" [(ngModel)]="creature.name" /><br /><br />
+
+      <label for="description">Description</label><br />
+      <textarea id="description" rows="10" cols="65" name="description" [(ngModel)]="creature.description"></textarea><br /><br />
+
+      <label for="abilities">Abilities</label><br />
+      <textarea type="text" id="abilities" rows="2" cols="65" name="abilities" [(ngModel)]="abilitiesString"></textarea><br />
+      <em class="use-comma">Use a comma to separate abilities</em><br /><br />
+
+      <label for="dangerLevel">Danger Level</label><br />
+      <input type="number" id="dangerLevel" name="dangerLevel" [(ngModel)]="creature.dangerLevel" /><br /><br />
+
+      <label for="habitat">Habitat</label><br />
+      <input type="text" id="habitat" name="habitat" [(ngModel)]="creature.habitat" /><br /><br />
+
+      <input type="submit" id="submit" value="Submit">
+    </fieldset>
+  </form>
+  <a routerLink="/">Return to creatures</a>
+</div>

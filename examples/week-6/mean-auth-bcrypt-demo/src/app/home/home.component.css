@@ -1,0 +1,19 @@
+#signout-container {
+  margin-top: 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#signout-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: purple;
+  color: #fff;
+  border: none;
+  opacity: .8;
+}
+
+#signout-container button:hover {
+  opacity: 1;
+}
+

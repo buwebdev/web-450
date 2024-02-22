@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow p-4">
+        <form [formGroup]="emailForm" (ngSubmit)="verifyEmail()" class="form row g-3">
+
+          <div *ngIf="errorMessage" class="row">
+            <div class="col-12">
+              <div class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="mb-3 form-group">
+            <legend>Employee Information</legend>
+
+            <div class="row">
+              <div class="col-md-12">
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-control" formControlName="email" type="text" id="email" name="email" required>
+
+                 <!-- validation errors -->
+                <div class="alert alert-danger mt-2" *ngIf="emailForm.controls['email'].invalid && (emailForm.controls['email'].dirty || emailForm.controls['email'].touched)">
+                  <div *ngIf="emailForm.controls['email'].hasError('required')">
+                    Email is required.
+                  </div>
+
+                  <div *ngIf="emailForm.controls['email'].hasError('email')">
+                    Email must be a valid email address.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit" id="submit" [disabled]="!emailForm.valid" class="btn btn-lg bg-dark text-white mx-auto d-block">
+            <span *ngIf="!isLoading">Verify Account</span>
+
+            <div *ngIf="isLoading">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
+            </div>
+          </button>
+        </form>
+      </div>
+      <a class="text-underline-hover text-dark" routerLink="/">Return</a>
+    </div>
+  </div>
+</div>
+

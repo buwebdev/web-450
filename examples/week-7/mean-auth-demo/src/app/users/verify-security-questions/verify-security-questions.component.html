@@ -1,0 +1,86 @@
+<div class="container mt-5">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow p-4">
+        <form [formGroup]="sqForm" (ngSubmit)="verifySecurityQuestions()" class="form row g-3">
+
+          <div *ngIf="errorMessage" class="row">
+            <div class="col-12">
+              <div class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="mb-3 form-group">
+            <legend>Security Questions</legend>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="spinner-border" role="status" *ngIf="isLoadingLabels">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+
+                <label *ngIf="!isLoadingLabels" for="q1" class="form-label">{{ question1 }}</label>
+                <input type="text" formControlName="answer1" class="form-control">
+
+                <!-- validation errors -->
+                <div class="alert alert-danger mt-2" *ngIf="sqForm.controls['answer1'].invalid && (sqForm.controls['answer1'].dirty || sqForm.controls['answer1'].touched)">
+                  <div *ngIf="sqForm.controls['answer1'].hasError('required')">
+                    Answer is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="spinner-border" role="status" *ngIf="isLoadingLabels">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+
+                <label *ngIf="!isLoadingLabels" for="q2" class="form-label">{{ question2 }}</label>
+                <input type="text" formControlName="answer2" class="form-control">
+
+                <!-- validation errors -->
+                <div class="alert alert-danger mt-2" *ngIf="sqForm.controls['answer2'].invalid && (sqForm.controls['answer2'].dirty || sqForm.controls['answer2'].touched)">
+                  <div *ngIf="sqForm.controls['answer2'].hasError('required')">
+                    Answer is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="spinner-border" role="status" *ngIf="isLoadingLabels">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+
+                <label *ngIf="!isLoadingLabels" for="q3" class="form-label">{{ question3 }}</label>
+                <input type="text" formControlName="answer3" class="form-control">
+
+                <!-- validation errors -->
+                <div class="alert alert-danger mt-2" *ngIf="sqForm.controls['answer3'].invalid && (sqForm.controls['answer3'].dirty || sqForm.controls['answer3'].touched)">
+                  <div *ngIf="sqForm.controls['answer3'].hasError('required')">
+                    Answer is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit" id="submit" [disabled]="!sqForm.valid" class="btn btn-lg bg-dark text-white mx-auto d-block">
+            <span *ngIf="!isLoadingSubmit">Verify Security Questions</span>
+
+            <div *ngIf="isLoadingSubmit">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
+            </div>
+          </button>
+        </form>
+      </div>
+      <a class="text-underline-hover text-dark" routerLink="/forgot-password">Return</a>
+    </div>
+  </div>
+</div>
+

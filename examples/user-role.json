@@ -1,28 +1,28 @@
 [
-    {
-        "userId": "1007",
-        "firstName": "Ludwig van",
-        "lastName": "Beethoven",
-        "roles": [
-            {
-                "roleId": "100",
-                "roleName": "admin"
-            },
-            {
-                "roleId": "101",
-                "roleName": "read-write"
-            }
-        ]
-    },
-    {
-        "userId": "1008",
-        "firstName": "Wolfgang Amadeus",
-        "lastName": "Mozart",
-        "roles": [
-            {
-                "roleId": "102",
-                "roleName": "write"
-            }
-        ]
-    }
+  {
+    "userId": "1007",
+    "firstName": "Ludwig van",
+    "lastName": "Beethoven",
+    "roles": [
+      {
+        "roleId": "100",
+        "roleName": "admin"
+      },
+      {
+        "roleId": "101",
+        "roleName": "read-write"
+      }
+    ]
+  },
+  {
+    "userId": "1008",
+    "firstName": "Wolfgang Amadeus",
+    "lastName": "Mozart",
+    "roles": [
+      {
+        "roleId": "102",
+        "roleName": "write"
+      }
+    ]
+  }
 ]

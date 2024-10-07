@@ -1,0 +1,11 @@
+[
+  {
+    "_id": "650c1f1e1c9d440000a1b1c1",
+    "userId": 1000,
+    "categoryId": 1,
+    "name": "Food",
+    "description": "Food and beverages",
+    "dateCreated": "2021-01-01T00:00:00.000Z",
+    "dateModified": "2021-01-01T00:00:00.000Z"
+  }
+]

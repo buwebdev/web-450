@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "650c1f1e1c9d440000a1b1c1",
+    "projectId": 1000,
+    "name": "Project Alpha",
+    "description": "Initial phase of the project",
+    "startDate": "2021-01-01T00:00:00.000Z",
+    "endDate": "2021-06-01T00:00:00.000Z",
+    "dateCreated": "2021-01-01T00:00:00.000Z",
+    "dateModified": "2021-01-05T00:00:00.000Z"
+  }
+]

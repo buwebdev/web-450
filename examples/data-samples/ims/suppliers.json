@@ -1,0 +1,11 @@
+[
+  {
+    "_id": "650c1f1e1c9d440000a1b1c1",
+    "supplierId": 1,
+    "supplierName": "TechSupplier",
+    "contactInformation": "123-456-7890",
+    "address": "123 Tech Street",
+    "dateCreated": "2021-01-01T00:00:00.000Z",
+    "dateModified": "2021-01-01T00:00:00.000Z"
+  }
+]

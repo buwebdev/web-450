@@ -1,0 +1,13 @@
+[
+  {
+    "_id": "650c1f1e1c9d440000a1b1c1",
+    "name": "Rose",
+    "type": "Flower",
+    "status": "Growing",
+    "datePlanted": "2021-01-01T00:00:00.000Z",
+    "dateHarvested": null,
+    "dateCreated": "2021-01-01T00:00:00.000Z",
+    "dateModified": "2021-01-05T00:00:00.000Z",
+    "gardenId": 1000
+  }
+]

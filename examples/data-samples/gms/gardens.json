@@ -1,0 +1,11 @@
+[
+  {
+    "_id": "650c1f1e1c9d440000a1b1c1",
+    "gardenId": 1000,
+    "name": "Backyard Garden",
+    "location": "123 Garden Lane",
+    "description": "A beautiful backyard garden with a variety of plants.",
+    "dateCreated": "2021-01-01T00:00:00.000Z",
+    "dateModified": "2021-01-05T00:00:00.000Z"
+  }
+]

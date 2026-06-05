@@ -1,0 +1,249 @@
+/**
+  Author: Professor Krasso
+  Modified by: GitHub CoPilot
+  Date: 8/8/2024
+  File: styles.css
+  Description: Global styles for the application.
+*/
+
+
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Card Styles */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.card__header {
+  background-color: #20c997; /* Match avatar background color */
+  color: white;
+  padding: 15px;
+  font-size: 1.25em;
+}
+
+.card__body {
+  padding: 15px;
+}
+
+/* Button Styles */
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875em;
+  transition: background-color 0.3s ease;
+}
+
+.button--primary {
+  background-color: #20c997;
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: #1b9e7c;
+}
+
+.button--secondary {
+  background-color: #4e4a4a;
+  color: white;
+}
+
+.button--secondary:hover {
+  background-color: #3e3a3a;
+}
+
+/* Warning Button Styles */
+.button--warning {
+  background-color: #dc3545;
+  color: white;
+}
+
+.button--warning:hover {
+  background-color: #c82333;
+}
+
+/* Form Styles */
+.form {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Input Styles */
+.input {
+  /* width: 100%; */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #20c997;
+  outline: none;
+}
+
+/* Select Menu Styles */
+.select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+  background-color: white; /* Ensure dropdown background is white */
+}
+
+.select:focus {
+  border-color: #20c997;
+  outline: none;
+}
+
+.select option {
+  background-color: white; /* Ensure options background is white */
+}
+
+/* Label Styles */
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+/* Message Styles */
+.message {
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.message--error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.message--info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.message--success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Link Styles */
+.link {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link--primary {
+  color: #20c997; /* Green color */
+}
+
+.link--primary:hover {
+  color: #1b9e7c; /* Darker green on hover */
+  text-decoration: underline;
+}
+
+.link--secondary {
+  color: #4e4a4a; /* Dark gray color */
+}
+
+.link--secondary:hover {
+  color: #3e3a3a; /* Darker gray on hover */
+  text-decoration: underline;
+}
+
+.link--warning {
+  color: #dc3545; /* Red color */
+}
+
+.link--warning:hover {
+  color: #c82333; /* Darker red on hover */
+  text-decoration: underline;
+}
+
+/* Edit Icon Styles */
+.fa-edit {
+  color: #20c997;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.fa-edit:hover {
+  color: #1b9e7c;
+}
+
+.fa-trash {
+  color: #20c997;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.fa-trash:hover {
+  color: #1b9e7c;
+}
+
+.required {
+  color: #dc3545;
+}
+
+.hr--light {
+  border: 0;
+  border-top: 1px solid #e9ecef; /* Light gray color similar to Bootstrap */
+}
